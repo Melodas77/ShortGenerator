@@ -1,0 +1,10 @@
+streamlit
+pytube
+openai-whisper
+moviepy
+pyrebase4
+gtts
+stripe
+torch
+numpy
+opencv-python
