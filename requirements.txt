@@ -1,7 +1,7 @@
 streamlit
 pytube
 openai-whisper
-moviepy
+moviepy==1.0.3
 pyrebase4
 gtts
 stripe
