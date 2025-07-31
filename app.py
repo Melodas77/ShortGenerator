@@ -132,9 +132,21 @@ elif upload_option == "AI-Generated Video":
             st.info("Creating visual with stock footage and text overlay...")
             clip_duration = 30
 
-            # Simulate stock footage by creating a background video from solid color or placeholder (can later use real stock clips)
-            bg_clip = TextClip("", bg_color='darkblue', size=(720, 1280), duration=clip_duration).set_duration(clip_duration)
-            txt_clip = TextClip(user_input, fontsize=40, color='white', size=(700, 1000), method='caption').set_position('center').set_duration(clip_duration)
+from moviepy.video.VideoClip import ColorClip
+
+clip_duration = 30
+
+# Background as solid dark blue
+bg_clip = ColorClip(size=(720, 1280), color=(0, 0, 139)).set_duration(clip_duration)
+
+# Text overlay
+txt_clip = TextClip(user_input, fontsize=40, color='white', size=(700, 1000), method='caption')
+txt_clip = txt_clip.set_position('center').set_duration(clip_duration)
+
+# Combine video and audio
+composite = CompositeVideoClip([bg_clip, txt_clip])
+composite = composite.set_audio(AudioFileClip(tts_path))
+
 
             composite = CompositeVideoClip([bg_clip, txt_clip])
             composite = composite.set_audio(AudioFileClip(tts_path))
