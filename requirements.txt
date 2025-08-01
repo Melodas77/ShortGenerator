@@ -1,5 +1,5 @@
 streamlit
-pytube
+git+https://github.com/pytube/pytube.git
 openai-whisper
 moviepy==1.0.3
 pyrebase4
